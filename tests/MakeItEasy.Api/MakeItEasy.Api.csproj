@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <AssemblyName>MakeItEasy.Api</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ApprovalTests" Version="5.4.5" />
+    <PackageReference Include="ApprovalUtilities" Version="5.4.5" />
+    <PackageReference Include="PublicApiGenerator" Version="10.2.0" />
+  </ItemGroup>
+
+</Project>

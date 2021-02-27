@@ -1,0 +1,121 @@
+﻿[assembly: System.CLSCompliant(true)]
+[assembly: System.Runtime.InteropServices.ComVisible(false)]
+[assembly: System.Runtime.Versioning.TargetFramework(".NETFramework,Version=v4.5", FrameworkDisplayName=".NET Framework 4.5")]
+namespace MakeItEasy
+{
+    public class CreationException : System.Exception
+    {
+        public CreationException() { }
+        public CreationException(string message) { }
+        public CreationException(string message, System.Exception innerException) { }
+    }
+    public static class Make
+    {
+        public static MakeItEasy.Syntax.Maker<T> A<T>() { }
+        public static MakeItEasy.Syntax.Maker<T> An<T>() { }
+    }
+}
+namespace MakeItEasy.Syntax
+{
+    public sealed class Maker<T>
+    {
+        public Maker() { }
+        public T From() { }
+        public T From<TArg1>(TArg1 argument1) { }
+        public T From<TCollab1>(out TCollab1 collaborator1) { }
+        public T From<TArg1, TArg2>(TArg1 argument1, TArg2 argument2) { }
+        public T From<TArg1, TCollab1>(TArg1 argument1, out TCollab1 collaborator1) { }
+        public T From<TCollab1, TCollab2>(out TCollab1 collaborator1, out TCollab2 collaborator2) { }
+        public T From<TArg1, TArg2, TArg3>(TArg1 argument1, TArg2 argument2, TArg3 argument3) { }
+        public T From<TArg1, TArg2, TCollab1>(TArg1 argument1, TArg2 argument2, out TCollab1 collaborator1) { }
+        public T From<TArg1, TCollab1, TCollab2>(TArg1 argument1, out TCollab1 collaborator1, out TCollab2 collaborator2) { }
+        public T From<TCollab1, TCollab2, TCollab3>(out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3) { }
+        public T From<TArg1, TArg2, TArg3, TArg4>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4) { }
+        public T From<TArg1, TArg2, TArg3, TCollab1>(TArg1 argument1, TArg2 argument2, TArg3 argument3, out TCollab1 collaborator1) { }
+        public T From<TArg1, TArg2, TCollab1, TCollab2>(TArg1 argument1, TArg2 argument2, out TCollab1 collaborator1, out TCollab2 collaborator2) { }
+        public T From<TArg1, TCollab1, TCollab2, TCollab3>(TArg1 argument1, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3) { }
+        public T From<TCollab1, TCollab2, TCollab3, TCollab4>(out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TCollab1>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, out TCollab1 collaborator1) { }
+        public T From<TArg1, TArg2, TArg3, TCollab1, TCollab2>(TArg1 argument1, TArg2 argument2, TArg3 argument3, out TCollab1 collaborator1, out TCollab2 collaborator2) { }
+        public T From<TArg1, TArg2, TCollab1, TCollab2, TCollab3>(TArg1 argument1, TArg2 argument2, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3) { }
+        public T From<TArg1, TCollab1, TCollab2, TCollab3, TCollab4>(TArg1 argument1, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4) { }
+        public T From<TCollab1, TCollab2, TCollab3, TCollab4, TCollab5>(out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TCollab1>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, out TCollab1 collaborator1) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TCollab1, TCollab2>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, out TCollab1 collaborator1, out TCollab2 collaborator2) { }
+        public T From<TArg1, TArg2, TArg3, TCollab1, TCollab2, TCollab3>(TArg1 argument1, TArg2 argument2, TArg3 argument3, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3) { }
+        public T From<TArg1, TArg2, TCollab1, TCollab2, TCollab3, TCollab4>(TArg1 argument1, TArg2 argument2, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4) { }
+        public T From<TArg1, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5>(TArg1 argument1, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5) { }
+        public T From<TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6>(out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TCollab1>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, out TCollab1 collaborator1) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TCollab1, TCollab2>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, out TCollab1 collaborator1, out TCollab2 collaborator2) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TCollab1, TCollab2, TCollab3>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3) { }
+        public T From<TArg1, TArg2, TArg3, TCollab1, TCollab2, TCollab3, TCollab4>(TArg1 argument1, TArg2 argument2, TArg3 argument3, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4) { }
+        public T From<TArg1, TArg2, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5>(TArg1 argument1, TArg2 argument2, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5) { }
+        public T From<TArg1, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6>(TArg1 argument1, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6) { }
+        public T From<TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7>(out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TArg8>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, TArg8 argument8) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TCollab1>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, out TCollab1 collaborator1) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TCollab1, TCollab2>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, out TCollab1 collaborator1, out TCollab2 collaborator2) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TCollab1, TCollab2, TCollab3>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TCollab1, TCollab2, TCollab3, TCollab4>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4) { }
+        public T From<TArg1, TArg2, TArg3, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5>(TArg1 argument1, TArg2 argument2, TArg3 argument3, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5) { }
+        public T From<TArg1, TArg2, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6>(TArg1 argument1, TArg2 argument2, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6) { }
+        public T From<TArg1, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7>(TArg1 argument1, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7) { }
+        public T From<TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7, TCollab8>(out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7, out TCollab8 collaborator8) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TArg8, TCollab1>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, TArg8 argument8, out TCollab1 collaborator1) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TCollab1, TCollab2>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, out TCollab1 collaborator1, out TCollab2 collaborator2) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TCollab1, TCollab2, TCollab3>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TCollab1, TCollab2, TCollab3, TCollab4>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5) { }
+        public T From<TArg1, TArg2, TArg3, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6>(TArg1 argument1, TArg2 argument2, TArg3 argument3, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6) { }
+        public T From<TArg1, TArg2, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7>(TArg1 argument1, TArg2 argument2, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7) { }
+        public T From<TArg1, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7, TCollab8>(TArg1 argument1, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7, out TCollab8 collaborator8) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TArg8, TCollab1, TCollab2>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, TArg8 argument8, out TCollab1 collaborator1, out TCollab2 collaborator2) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TCollab1, TCollab2, TCollab3>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TCollab1, TCollab2, TCollab3, TCollab4>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6) { }
+        public T From<TArg1, TArg2, TArg3, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7>(TArg1 argument1, TArg2 argument2, TArg3 argument3, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7) { }
+        public T From<TArg1, TArg2, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7, TCollab8>(TArg1 argument1, TArg2 argument2, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7, out TCollab8 collaborator8) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TArg8, TCollab1, TCollab2, TCollab3>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, TArg8 argument8, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TCollab1, TCollab2, TCollab3, TCollab4>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7) { }
+        public T From<TArg1, TArg2, TArg3, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7, TCollab8>(TArg1 argument1, TArg2 argument2, TArg3 argument3, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7, out TCollab8 collaborator8) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TArg8, TCollab1, TCollab2, TCollab3, TCollab4>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, TArg8 argument8, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7, TCollab8>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7, out TCollab8 collaborator8) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TArg8, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, TArg8 argument8, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7, TCollab8>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7, out TCollab8 collaborator8) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TArg8, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, TArg8 argument8, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7, TCollab8>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7, out TCollab8 collaborator8) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TArg8, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, TArg8 argument8, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7, TCollab8>(TArg1 argument1, TArg2 argument2, TArg3 argument3, TArg4 argument4, TArg5 argument5, TArg6 argument6, TArg7 argument7, out TCollab1 collaborator1, out TCollab2 collaborator2, out TCollab3 collaborator3, out TCollab4 collaborator4, out TCollab5 collaborator5, out TCollab6 collaborator6, out TCollab7 collaborator7, out TCollab8 collaborator8) { }
+        public T From<TArg1, TArg2, TArg3, TArg4, TArg5, TArg6, TArg7, TArg8, TCollab1, TCollab2, TCollab3, TCollab4, TCollab5, TCollab6, TCollab7, TCollab8>(
+                    TArg1 argument1,
+                    TArg2 argument2,
+                    TArg3 argument3,
+                    TArg4 argument4,
+                    TArg5 argument5,
+                    TArg6 argument6,
+                    TArg7 argument7,
+                    TArg8 argument8,
+                    out TCollab1 collaborator1,
+                    out TCollab2 collaborator2,
+                    out TCollab3 collaborator3,
+                    out TCollab4 collaborator4,
+                    out TCollab5 collaborator5,
+                    out TCollab6 collaborator6,
+                    out TCollab7 collaborator7,
+                    out TCollab8 collaborator8) { }
+    }
+}

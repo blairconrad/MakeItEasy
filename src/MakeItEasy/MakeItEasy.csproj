@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net4.5;netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
+    <AssemblyName>MakeItEasy</AssemblyName>
+    <PackageId>MakeItEasy</PackageId>
+</PropertyGroup>
+
+  <PropertyGroup Label="Package properties">
+    <Title>MakeItEasy</Title>
+    <Authors>Blair Conrad, MakeItEasy contributors</Authors>
+    <Description>A library for easily creating systems under test and their Fake collaborators.</Description>
+    <Copyright>Copyright (c) MakeItEasy contributors.</Copyright>
+    <PackageProjectUrl>https://github.com/blairconrad/MakeItEasy/</PackageProjectUrl>
+    <!-- <PackageIconUrl>https://raw.github.com/blairconrad/MakeItEasy/main/assets/makeiteasy_128x128.png</PackageIconUrl> -->
+    <PackageLicenseUrl>https://github.com/blairconrad/MakeItEasy/blob/main/License.txt</PackageLicenseUrl>
+    <PackageReleaseNotes>https://github.com/blairconrad/MakeItEasy/blob/main/release_notes.md</PackageReleaseNotes>
+    <PackageTags>mocks;mocking;fakes;faking</PackageTags>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="$(OutputPath)/*/MakeItEasy.pdb">
+      <Pack>true</Pack>
+      <PackagePath>lib/%(RecursiveDir)MakeItEasy.pdb</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FakeItEasy" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Syntax\Maker.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Maker.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Syntax\Maker.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Maker.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

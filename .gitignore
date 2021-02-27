@@ -1,0 +1,17 @@
+.vs
+[Oo]bj
+[Bb]in
+artifacts
+tools/*/ToolPaths.cs
+
+*.*proj.user
+*.ncb
+*.suo
+*.orig
+*.diff
+*.[Cc]ache
+*[Rr][Ee][Ss][Hh][Aa][Rr][Pp][Ee][Rr]*
+*.[Dd]ot[Ss]ettings.*
+Thumbs.db
+*.received.txt
+*.nuget.targets

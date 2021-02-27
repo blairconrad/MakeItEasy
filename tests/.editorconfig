@@ -1,0 +1,3 @@
+[*.cs]
+dotnet_diagnostic.CA1034.severity = none    # Do not nest types
+dotnet_diagnostic.CA1040.severity = none    # Avoid empty interfaces
