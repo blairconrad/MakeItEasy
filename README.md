@@ -10,16 +10,19 @@ access to the FakeItEasy Fakes used by the SUTs. Uses
 Suppose a system under test has a very long constructor:
 
 ```c#
-class VeryNeedySystem
+public class VeryNeedySystem
 {
-   public VeryNeedySystem
-       DateTime time,
-       String name,
-       Priority priority,
-       ICalendarService calendar,
-       IEmailService email,
-       ILogger logger,
-       …)
+    public VeryNeedySystem(
+        DateTime time,
+        String name,
+        Priority priority,
+        ICalendarService calendar,
+        IEmailService email,
+        ILogger logger,
+        …)
+    {
+        …
+    }
 }
 ```
 
@@ -32,7 +35,7 @@ using MakeItEasy;
 
 public void TimeShouldBeRecent()
 {
-    var needy = Make.A<VeryNeedySystem>.From(new DateTime(2020, 12, 7));
+    var needy = Make.A<VeryNeedySystem>().From(new DateTime(2020, 12, 7));
     Assert.Throws(() => needy.ValidateState());
 }
 ```
@@ -60,10 +63,10 @@ you can configure or interrogate them later:
 ```c#
 public void ShouldSendEmail()
 {
-    var needy = Make.A<VeryNeedySystem>.From(DateTime.Now(), out IEmailService fakeEmail);
-    A.CallTo(() => fakeEmail.Send().Returns(true));
+    var needy = Make.A<VeryNeedySystem>().From(DateTime.Now, out IEmailService fakeEmail);
+    A.CallTo(() => fakeEmail.Send()).Returns(true);
     // use needy somehow
-    A.CallTo(() => fakeEmail.Send().MustHaveHappened());
+    A.CallTo(() => fakeEmail.Send()).MustHaveHappened();
 }
 ```
 
