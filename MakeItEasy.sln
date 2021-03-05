@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
 		build.cmd = build.cmd
 		CONTRIBUTING.md = CONTRIBUTING.md
 		Directory.Build.props = Directory.Build.props
@@ -28,12 +29,32 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MakeItEasy.Build", "tools\MakeItEasy.Build\MakeItEasy.Build.csproj", "{EC85022E-4F88-4CDB-B510-C0A6BD4F50A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{0EA6D307-2EFF-471B-8ACB-3F216E779669}"
+	ProjectSection(SolutionItems) = preProject
+		tools\deploy.ps1 = tools\deploy.ps1
+		tools\release-version.ps1 = tools\release-version.ps1
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MakeItEasy.Api", "tests\MakeItEasy.Api\MakeItEasy.Api.csproj", "{811BB4B2-DB9B-4256-AF81-D8B643E725D9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MakeItEasy.Specs.FIE.Latest", "tests\MakeItEasy.Specs.FIE.Latest\MakeItEasy.Specs.FIE.Latest.csproj", "{DF6EDE01-4E9B-4610-A344-159BED196896}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MakeItEasy.Specs.FIE.6.0.0", "tests\MakeItEasy.Specs.FIE.6.0.0\MakeItEasy.Specs.FIE.6.0.0.csproj", "{45C8B4E7-8150-4134-AD8F-218728EECD82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{DE024E9D-F1ED-4CB3-9D41-D42F25149A17}"
+	ProjectSection(SolutionItems) = preProject
+		assets\build_icons.py = assets\build_icons.py
+		assets\makeiteasy_128.png = assets\makeiteasy_128.png
+		assets\makeiteasy_16.png = assets\makeiteasy_16.png
+		assets\makeiteasy_256.png = assets\makeiteasy_256.png
+		assets\makeiteasy_32.png = assets\makeiteasy_32.png
+		assets\makeiteasy_48.png = assets\makeiteasy_48.png
+		assets\makeiteasy_512.png = assets\makeiteasy_512.png
+		assets\makeiteasy_64.png = assets\makeiteasy_64.png
+		assets\makeiteasy_original.pdn = assets\makeiteasy_original.pdn
+		assets\makeiteasy_original.png = assets\makeiteasy_original.png
+		assets\noun_Puzzle_3585706.png = assets\noun_Puzzle_3585706.png
+		assets\social-preview.png = assets\social-preview.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,6 +136,7 @@ Global
 		{811BB4B2-DB9B-4256-AF81-D8B643E725D9} = {8F4301AF-97F2-4545-A2C1-03F8F21FB508}
 		{DF6EDE01-4E9B-4610-A344-159BED196896} = {8F4301AF-97F2-4545-A2C1-03F8F21FB508}
 		{45C8B4E7-8150-4134-AD8F-218728EECD82} = {8F4301AF-97F2-4545-A2C1-03F8F21FB508}
+		{DE024E9D-F1ED-4CB3-9D41-D42F25149A17} = {96497DC2-7D3E-4603-AA23-EB0A258ED804}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23158121-52AD-415C-8014-0D630E9B99C9}
