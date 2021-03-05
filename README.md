@@ -1,9 +1,9 @@
-# MakeItEasy
+<img src="assets/makeiteasy_256.png" width="128px" alt="MakeItEasy logo" />
 
-Prototype of a library to make it easy to create
+MakeItEasy is a .NET library that makes it easy to create
 [systems under test](http://xunitpatterns.com/SUT.html) (SUTs) and to provide
-access to the FakeItEasy Fakes used by the SUTs. Uses
-[FakeItEasy](https://fakeiteasy.github.io/) to supply the SUT's collaborators.
+access to the [FakeItEasy](https://fakeiteasy.github.io/) Fakes that act as the
+SUTs' collaborators.
 
 ## Simple Example
 
@@ -97,3 +97,7 @@ can still be used.
     This really only matters if there are repeated parameter types in the constructor's signature.
     
 * The library is not yet well-protected against constructors that throw exceptions
+
+----
+Logo: Colorized version of [Puzzle](https://thenounproject.com/term/puzzle/3585706/)
+by [Ladalle CS](https://thenounproject.com/ladallecs/) from the Noun Project.
