@@ -1,0 +1,24 @@
+version: '{build}'
+
+image: Visual Studio 2019
+
+branches:
+    only:
+        - /^(master|[1-9][0-9]*/.[1-9][0-9]*/.[1-9][0-9]*(-.+)?)$/
+
+pull_requests:
+    do_not_increment_build_number: true
+
+build_script:
+    - cmd: build.cmd
+
+nuget:
+    disable_publish_on_pr: true
+
+test: off
+
+artifacts:
+    - path: ./artifacts/*/*
+
+deploy_script:
+    - ps: ./tools/deploy.ps1
