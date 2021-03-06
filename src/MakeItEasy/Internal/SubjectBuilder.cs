@@ -16,14 +16,7 @@ namespace MakeItEasy.Internal
             }
 
             var requiredTypes = argumentTypes.Concat(collaboratorTypes).ToList();
-            var message = requiredTypes.Count switch
-            {
-                0 => $"No accessible constructor for type {typeof(T)}",
-                1 => $"No accessible constructor for type {typeof(T)} contains a parameter of type {requiredTypes[0]}",
-                _ => $"No accessible constructor for type {typeof(T)} contains all of the following parameter types {string.Join(", ", requiredTypes)}",
-            };
-
-            throw new CreationException(message);
+            throw new CreationException(ExceptionMessages.NoAccessibleConstructor(typeof(T), requiredTypes));
         }
 
         private static IEnumerable<ConstructorInfo> GetAllConstructors(Type type)
