@@ -11,25 +11,6 @@ namespace MakeItEasy.Specs
     public static class MakeWithCollaboratorsOnlySpecs
     {
         [Scenario]
-        public static void ClassWithNoMatchingCollaboratorCannotBeCreated(
-            Exception exception)
-        {
-            "Given a class that has only a parameterless constructor"
-                .See<NoCollaboratorsClass>();
-
-            "When I make an object of that type and ask for a collaborator back"
-                .x(() => exception = Record.Exception(() =>
-                    Make.A<NoCollaboratorsClass>()
-                        .From(out ICanCollaborate collaborator)));
-
-            "Then an exception is thrown"
-                .x(() => exception.Should().BeOfType<CreationException>());
-
-            "And the exception indicates why the creation failed"
-                .x(() => exception.Message.Should().Be("No accessible constructor for type MakeItEasy.Specs.TestTypes.NoCollaboratorsClass contains a parameter of type MakeItEasy.Specs.TestTypes.ICanCollaborate"));
-        }
-
-        [Scenario]
         public static void ClassWithMatchingCollaboratorCanBeCreated(
             OneCollaboratorClass subject, ICanCollaborate collaborator)
         {

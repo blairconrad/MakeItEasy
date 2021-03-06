@@ -11,25 +11,6 @@ namespace MakeItEasy.Specs
     public static class MakeWithSuppliedArgumentAndCollaboratorsSpecs
     {
         [Scenario]
-        public static void ClassWithNoMatchingCollaboratorCannotBeCreated(
-            Exception exception)
-        {
-            "Given a class that has one constructor taking an argument and one a collaborator"
-                .See<OneCollaboratorOrOneArgumentClass>();
-
-            "When I make an object of that type, supplying an argument and asking for a collaborator back"
-                .x(() => exception = Record.Exception(() =>
-                    Make.A<OneCollaboratorOrOneArgumentClass>()
-                        .From(-4, out ICanCollaborate collaborator)));
-
-            "Then an exception is thrown"
-                .x(() => exception.Should().BeOfType<CreationException>());
-
-            "And the exception indicates why the creation failed"
-                .x(() => exception.Message.Should().Be("No accessible constructor for type MakeItEasy.Specs.TestTypes.OneCollaboratorOrOneArgumentClass contains all of the following parameter types System.Int32, MakeItEasy.Specs.TestTypes.ICanCollaborate"));
-        }
-
-        [Scenario]
         public static void ClassWithMatchingArgumentAndCollaboratorCanBeCreated(
             OneCollaboratorOneArgumentClass subject, ICanCollaborate collaborator)
         {
