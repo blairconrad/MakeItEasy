@@ -88,7 +88,15 @@ namespace MakeItEasy.Internal
             for (int i = 0; i < this.collaboratorToParameterMap.Length; ++i)
             {
                 int parameterIndex = this.collaboratorToParameterMap[i];
-                arguments[parameterIndex] = collaborators[i] = Create.Fake(this.collaboratorTypes[i]);
+                try
+                {
+                    arguments[parameterIndex] = collaborators[i] = Create.Fake(this.collaboratorTypes[i]);
+                }
+                catch (Exception e)
+                {
+                    throw new CreationException(ExceptionMessages.FailedToCreateCollaborator(typeof(T), this.collaboratorTypes[i]), e);
+                }
+
                 unfilledParameterIndices.Remove(parameterIndex);
             }
 
