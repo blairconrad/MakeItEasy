@@ -8,6 +8,9 @@ namespace MakeItEasy.Internal
         public static string FailedToCreateCollaborator(Type subjectType, Type collaboratorType) =>
             $"Unable to create {subjectType}. Failed to create Fake collaborator of type {collaboratorType}.";
 
+        public static string FailedToCreateConstructorArgument(Type subjectType, Type parameterType) =>
+            $"Unable to create {subjectType}. Failed to create Dummy argument of type {parameterType}.";
+
         public static string NoAccessibleConstructor(Type subjectType, IList<Type> requiredTypes) =>
             requiredTypes.Count switch
             {

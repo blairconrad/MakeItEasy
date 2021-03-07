@@ -102,7 +102,15 @@ namespace MakeItEasy.Internal
 
             foreach (var parameterIndex in unfilledParameterIndices)
             {
-                arguments[parameterIndex] = Create.Dummy(this.constructor.GetParameters()[parameterIndex].ParameterType);
+                Type parameterType = this.constructor.GetParameters()[parameterIndex].ParameterType;
+                try
+                {
+                    arguments[parameterIndex] = Create.Dummy(parameterType);
+                }
+                catch
+                {
+                    throw new CreationException(ExceptionMessages.FailedToCreateConstructorArgument(typeof(T), parameterType));
+                }
             }
 
             return (T)this.constructor.Invoke(arguments);
