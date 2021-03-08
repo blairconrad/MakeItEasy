@@ -78,13 +78,24 @@ namespace MakeItEasy.Internal
             var arguments = new object?[this.constructor.GetParameters().Length];
             var unfilledParameterIndices = new HashSet<int>(Enumerable.Range(0, arguments.Length));
 
+            this.FillSuppliedArguments(suppliedArgumentValues, arguments, unfilledParameterIndices);
+            this.FillCollaborators(collaborators, arguments, unfilledParameterIndices);
+            this.FillRemainingArguments(arguments, unfilledParameterIndices);
+            return (T)this.constructor.Invoke(arguments);
+        }
+
+        private void FillSuppliedArguments(object?[] suppliedArgumentValues, object?[] arguments, HashSet<int> unfilledParameterIndices)
+        {
             for (int i = 0; i < this.suppliedArgumentToParameterMap.Length; ++i)
             {
                 int parameterIndex = this.suppliedArgumentToParameterMap[i];
                 arguments[parameterIndex] = suppliedArgumentValues[i];
                 unfilledParameterIndices.Remove(parameterIndex);
             }
+        }
 
+        private void FillCollaborators(object[] collaborators, object?[] arguments, ISet<int> unfilledParameterIndices)
+        {
             for (int i = 0; i < this.collaboratorToParameterMap.Length; ++i)
             {
                 int parameterIndex = this.collaboratorToParameterMap[i];
@@ -99,7 +110,10 @@ namespace MakeItEasy.Internal
 
                 unfilledParameterIndices.Remove(parameterIndex);
             }
+        }
 
+        private void FillRemainingArguments(object?[] arguments, HashSet<int> unfilledParameterIndices)
+        {
             foreach (var parameterIndex in unfilledParameterIndices)
             {
                 Type parameterType = this.constructor.GetParameters()[parameterIndex].ParameterType;
@@ -112,8 +126,6 @@ namespace MakeItEasy.Internal
                     throw new CreationException(ExceptionMessages.FailedToCreateConstructorArgument(typeof(T), parameterType));
                 }
             }
-
-            return (T)this.constructor.Invoke(arguments);
         }
     }
 }
