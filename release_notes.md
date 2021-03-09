@@ -1,5 +1,7 @@
-## 0.1.1-beta.1
+### New
 
+- Fall back to other constructors when one throws or its arguments cannot be
+  resolved (#4, #5)
 
 ### Additional Changes
 

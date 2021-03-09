@@ -5,6 +5,15 @@ namespace MakeItEasy.Internal
 
     internal static class ExceptionMessages
     {
+        public static string ConstructorFailed() =>
+            "At least one constructor threw an exception. Constructors with the following signatures failed.";
+
+        public static string ExceptionMessage(Exception exception) =>
+            $"Message: {exception.Message}";
+
+        public static string ExceptionType(Exception exception) =>
+            $"Exception type: {exception.GetType()}";
+
         public static string FailedToCreateCollaborator(Type subjectType, Type collaboratorType) =>
             $"Unable to create {subjectType}. Failed to create Fake collaborator of type {collaboratorType}.";
 

@@ -79,7 +79,7 @@ namespace MakeItEasy.Internal
             this.FillSuppliedArguments(suppliedArgumentValues, argumentsToFill);
             this.FillCollaborators(collaborators, argumentsToFill);
             this.FillRemainingArguments(argumentsToFill);
-            return (T)this.constructor.Invoke(argumentsToFill.Arguments);
+            return this.BuildFrom(argumentsToFill);
         }
 
         private void FillSuppliedArguments(object?[] suppliedArgumentValues, ArgumentsToFill arguments)
@@ -122,6 +122,18 @@ namespace MakeItEasy.Internal
             catch
             {
                 throw new ArgumentCreationException(this.constructor, index);
+            }
+        }
+
+        private T BuildFrom(SubjectConstructor<T>.ArgumentsToFill argumentsToFill)
+        {
+            try
+            {
+                return (T)this.constructor.Invoke(argumentsToFill.Arguments);
+            }
+            catch (TargetInvocationException e)
+            {
+                throw new ConstructorFailedException(this.constructor, e.InnerException);
             }
         }
 

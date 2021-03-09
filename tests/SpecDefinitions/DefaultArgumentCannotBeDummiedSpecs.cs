@@ -4,15 +4,12 @@ namespace MakeItEasy.Specs
 
     using FakeItEasy;
     using FluentAssertions;
+    using MakeItEasy.Specs.TestTypes;
     using Xbehave;
     using Xunit;
 
     public static class DefaultArgumentCannotBeDummiedSpecs
     {
-        public interface ICannotBeDummied
-        {
-        }
-
         public interface ICannotBeDummiedEither
         {
         }
@@ -39,7 +36,7 @@ namespace MakeItEasy.Specs
 Unable to create MakeItEasy.Specs.DefaultArgumentCannotBeDummiedSpecs+RequiredParameterCannotBeDummiedClass.
 
   Failed to create at least one argument needed by a constructor. The following constructors were untried, with unresolvable types marked by *s.
-    (*MakeItEasy.Specs.DefaultArgumentCannotBeDummiedSpecs+ICannotBeDummied)
+    (*MakeItEasy.Specs.TestTypes.ICannotBeDummied)
 ".TrimStart()));
         }
 
@@ -66,7 +63,7 @@ Unable to create MakeItEasy.Specs.DefaultArgumentCannotBeDummiedSpecs+NeitherCol
 
   Failed to create at least one argument needed by a constructor. The following constructors were untried, with unresolvable types marked by *s.
     (System.Int32, *MakeItEasy.Specs.DefaultArgumentCannotBeDummiedSpecs+ICannotBeDummiedEither)
-    (*MakeItEasy.Specs.DefaultArgumentCannotBeDummiedSpecs+ICannotBeDummied)
+    (*MakeItEasy.Specs.TestTypes.ICannotBeDummied)
 ".TrimStart()));
         }
 
@@ -85,14 +82,6 @@ Unable to create MakeItEasy.Specs.DefaultArgumentCannotBeDummiedSpecs+NeitherCol
 
             "Then the object is created"
                 .x(() => subject.Should().NotBeNull());
-        }
-
-        public class CannotBeDummiedDummyFactory : DummyFactory<ICannotBeDummied>
-        {
-            protected override ICannotBeDummied Create()
-            {
-                throw new InvalidOperationException();
-            }
         }
 
         public class CannotBeDummiedEitherDummyFactory : DummyFactory<ICannotBeDummiedEither>
