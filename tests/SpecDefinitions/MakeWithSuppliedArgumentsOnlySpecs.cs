@@ -10,24 +10,6 @@ namespace MakeItEasy.Specs
     public static class MakeWithSuppliedArgumentsOnlySpecs
     {
         [Scenario]
-        public static void ClassWithNoMatchingArgumentCannotBeCreated(
-            Exception exception)
-        {
-            "Given a class that has only one constructor"
-                .See<OneArgumentClass>();
-
-            "When I make an object of that type and supply a non-matching constructor argument"
-                .x(() => exception = Record.Exception(() =>
-                    Make.A<OneArgumentClass>().From("hippo")));
-
-            "Then an exception is thrown"
-                .x(() => exception.Should().BeOfType<CreationException>());
-
-            "And the exception indicates why the creation failed"
-                .x(() => exception.Message.Should().Be("No accessible constructor for type MakeItEasy.Specs.TestTypes.OneArgumentClass contains a parameter of type System.String"));
-        }
-
-        [Scenario]
         public static void ClassWithMatchingArgumentCanBeCreated(
             OneCollaboratorOneArgumentClass subject)
         {

@@ -75,29 +75,96 @@ namespace MakeItEasy.Internal
 
         internal T Build(object?[] suppliedArgumentValues, object[] collaborators)
         {
-            var arguments = new object?[this.constructor.GetParameters().Length];
-            var unfilledParameterIndices = new HashSet<int>(Enumerable.Range(0, arguments.Length));
+            var argumentsToFill = new ArgumentsToFill(this.constructor.GetParameters().Length);
+            this.FillSuppliedArguments(suppliedArgumentValues, argumentsToFill);
+            this.FillCollaborators(collaborators, argumentsToFill);
+            this.FillRemainingArguments(argumentsToFill);
+            return this.BuildFrom(argumentsToFill);
+        }
 
+        private void FillSuppliedArguments(object?[] suppliedArgumentValues, ArgumentsToFill arguments)
+        {
             for (int i = 0; i < this.suppliedArgumentToParameterMap.Length; ++i)
             {
                 int parameterIndex = this.suppliedArgumentToParameterMap[i];
-                arguments[parameterIndex] = suppliedArgumentValues[i];
-                unfilledParameterIndices.Remove(parameterIndex);
+                arguments.Fill(parameterIndex, suppliedArgumentValues[i]);
             }
+        }
 
+        private void FillCollaborators(object[] collaborators, ArgumentsToFill argumentsToFill)
+        {
             for (int i = 0; i < this.collaboratorToParameterMap.Length; ++i)
             {
                 int parameterIndex = this.collaboratorToParameterMap[i];
-                arguments[parameterIndex] = collaborators[i] = Create.Fake(this.collaboratorTypes[i]);
-                unfilledParameterIndices.Remove(parameterIndex);
+                try
+                {
+                    collaborators[i] = Create.Fake(this.collaboratorTypes[i]);
+                    argumentsToFill.Fill(parameterIndex, collaborators[i]);
+                }
+                catch (Exception e)
+                {
+                    throw new CreationException(ExceptionMessages.FailedToCreateCollaborator(typeof(T), this.collaboratorTypes[i]), e);
+                }
             }
+        }
 
-            foreach (var parameterIndex in unfilledParameterIndices)
+        private void FillRemainingArguments(ArgumentsToFill argumentsToFill)
+        {
+            argumentsToFill.FillRemaining(this.CreateArgument);
+        }
+
+        private object? CreateArgument(int index)
+        {
+            try
             {
-                arguments[parameterIndex] = Create.Dummy(this.constructor.GetParameters()[parameterIndex].ParameterType);
+                return Create.Dummy(this.constructor.GetParameters()[index].ParameterType);
+            }
+            catch
+            {
+                throw new ArgumentCreationException(this.constructor, index);
+            }
+        }
+
+        private T BuildFrom(SubjectConstructor<T>.ArgumentsToFill argumentsToFill)
+        {
+            try
+            {
+                return (T)this.constructor.Invoke(argumentsToFill.Arguments);
+            }
+            catch (TargetInvocationException e)
+            {
+                throw new ConstructorFailedException(this.constructor, e.InnerException);
+            }
+        }
+
+        private class ArgumentsToFill
+        {
+            private readonly object?[] arguments;
+            private readonly HashSet<int> unfilledParameterIndices;
+
+            public ArgumentsToFill(int numberOfArguments)
+            {
+                this.arguments = new object?[numberOfArguments];
+                this.unfilledParameterIndices = new HashSet<int>(Enumerable.Range(0, this.arguments.Length));
             }
 
-            return (T)this.constructor.Invoke(arguments);
+            public object?[] Arguments => this.arguments;
+
+            public void Fill(int parameterIndex, object? value)
+            {
+                this.arguments[parameterIndex] = value;
+                this.unfilledParameterIndices.Remove(parameterIndex);
+            }
+
+            public void FillRemaining(Func<int, object?> factory)
+            {
+                foreach (var index in this.unfilledParameterIndices)
+                {
+                    this.arguments[index] = factory(index);
+                }
+
+                this.unfilledParameterIndices.Clear();
+            }
         }
     }
 }

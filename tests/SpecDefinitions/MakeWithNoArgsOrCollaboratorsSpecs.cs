@@ -70,22 +70,5 @@ namespace MakeItEasy.Specs
             "Then the subject should be of the desired type"
                 .x(() => subject.Should().BeOfType<OneArgumentClass>());
         }
-
-        [Scenario]
-        public static void ClassWithNoPublicConstructorCannotBeCreated(
-            Exception exception)
-        {
-            "Given a class that has no public constructor"
-                .See<NoPublicConstructorClass>();
-
-            "When I make an object of that type"
-                .x(() => exception = Record.Exception(() => Make.A<NoPublicConstructorClass>().From()));
-
-            "Then an exception is thrown"
-                .x(() => exception.Should().BeOfType<CreationException>());
-
-            "And the exception indicates why the creation failed"
-                .x(() => exception.Message.Should().Be("No accessible constructor for type MakeItEasy.Specs.TestTypes.NoPublicConstructorClass"));
-        }
     }
 }
