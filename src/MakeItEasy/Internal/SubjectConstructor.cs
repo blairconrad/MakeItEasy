@@ -110,18 +110,18 @@ namespace MakeItEasy.Internal
 
         private void FillRemainingArguments(ArgumentsToFill argumentsToFill)
         {
-            argumentsToFill.FillRemaining(index => CreateArgument(this.constructor.GetParameters()[index].ParameterType));
+            argumentsToFill.FillRemaining(this.CreateArgument);
+        }
 
-            static object? CreateArgument(Type parameterType)
+        private object? CreateArgument(int index)
+        {
+            try
             {
-                try
-                {
-                    return Create.Dummy(parameterType);
-                }
-                catch
-                {
-                    throw new CreationException(ExceptionMessages.FailedToCreateConstructorArgument(typeof(T), parameterType));
-                }
+                return Create.Dummy(this.constructor.GetParameters()[index].ParameterType);
+            }
+            catch
+            {
+                throw new ArgumentCreationException(this.constructor, index);
             }
         }
 
