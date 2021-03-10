@@ -20,7 +20,6 @@ namespace MakeItEasy.Syntax
     public sealed class Maker<T>
     {
         public Maker() { }
-        public T From() { }
         public T From<TArg1>(TArg1 argument1) { }
         public T From<TCollab1>(out TCollab1 collaborator1) { }
         public T From<TArg1, TArg2>(TArg1 argument1, TArg2 argument2) { }
@@ -117,5 +116,6 @@ namespace MakeItEasy.Syntax
                     out TCollab6 collaborator6,
                     out TCollab7 collaborator7,
                     out TCollab8 collaborator8) { }
+        public T FromDefaults() { }
     }
 }

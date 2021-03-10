@@ -24,7 +24,7 @@ namespace MakeItEasy.Specs
                 .See<OneConstructorFailsAnotherHasUnresolvableArgument>();
 
             "When I try to make an object of the type"
-                .x(() => exception = Record.Exception(() => Make.A<OneConstructorFailsAnotherHasUnresolvableArgument>().From()));
+                .x(() => exception = Record.Exception(() => Make.A<OneConstructorFailsAnotherHasUnresolvableArgument>().FromDefaults()));
 
             "Then an exception is thrown"
                 .x(() => exception.Should().BeOfType<CreationException>());

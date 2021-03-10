@@ -49,8 +49,9 @@ MakeItEasy will
 4. call the constructor, returning the result
 
 It's possible to specify as few of the constructor arguments in the
-`Make.A<…>.From(…)` as desired (even 0), or a great many. Of course, every
-additional argument you supply means more work for you and less for MakeItEasy.
+`Make.A<…>.From(…)` as desired (even 0, via the `FromDefaults()` method), or as
+many. Of course, every additional argument you supply means more work for you
+and less for MakeItEasy.
 
 
 ## Fancier Example, with Fake Creation
