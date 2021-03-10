@@ -18,8 +18,11 @@
   <ItemGroup Condition=" $(AssemblyName.StartsWith(`MakeItEasy.Specs.FIE.`)) ">
     <PackageReference Include="Xbehave.Core" Version="2.4.1" />
     <ProjectReference Include="$(MSBuildProjectDirectory)/../../src/MakeItEasy/MakeItEasy.csproj" />
-    <Compile Include="$(MSBuildProjectDirectory)/../SpecDefinitions/*.cs"><Link>%(Filename)%(Extension)</Link></Compile>
-    <Compile Include="$(MSBuildProjectDirectory)/../SpecDefinitions/TestTypes/*.cs"><Link>TestTypes/%(Filename)%(Extension)</Link></Compile>
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(AssemblyName.StartsWith(`MakeItEasy.Specs.FIE.`)) And $(AssemblyName) != 'MakeItEasy.Specs.FIE.Latest' ">
+    <Compile Include="$(MSBuildProjectDirectory)/../MakeItEasy.Specs.FIE.Latest/**/*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Remove="$(MSBuildProjectDirectory)/../MakeItEasy.Specs.FIE.Latest/obj/**" />
   </ItemGroup>
 
 </Project>
