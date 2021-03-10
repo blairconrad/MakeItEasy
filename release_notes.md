@@ -1,3 +1,7 @@
+### New
+
+- Change "latest FakeItEasy" test to include pre-release versions
+
 ## 0.2.0
 
 ### Changed
