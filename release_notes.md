@@ -1,3 +1,5 @@
+## 0.3.0
+
 ### New
 
 - Explicitly test against FakeItEasy 6.2.1
