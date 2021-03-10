@@ -96,8 +96,6 @@ can still be used.
     * Dummies
 
     This really only matters if there are repeated parameter types in the constructor's signature.
-    
-* The library is not yet well-protected against constructors that throw exceptions
 
 ----
 Logo: Colorized version of [Puzzle](https://thenounproject.com/term/puzzle/3585706/)
