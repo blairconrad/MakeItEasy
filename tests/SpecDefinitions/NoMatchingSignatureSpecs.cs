@@ -18,7 +18,7 @@ namespace MakeItEasy.Specs
                 .See<NoPublicConstructorClass>();
 
             "When I make an object of that type"
-                .x(() => exception = Record.Exception(() => Make.A<NoPublicConstructorClass>().From()));
+                .x(() => exception = Record.Exception(() => Make.A<NoPublicConstructorClass>().FromDefaults()));
 
             "Then an exception is thrown"
                 .x(() => exception.Should().BeOfType<CreationException>());

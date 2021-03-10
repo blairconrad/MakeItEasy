@@ -25,7 +25,7 @@ namespace MakeItEasy.Specs
                 .See<RequiredParameterCannotBeDummiedClass>();
 
             "When I try to make an object of the type"
-                .x(() => exception = Record.Exception(() => Make.A<RequiredParameterCannotBeDummiedClass>().From()));
+                .x(() => exception = Record.Exception(() => Make.A<RequiredParameterCannotBeDummiedClass>().FromDefaults()));
 
             "Then an exception is thrown"
                 .x(() => exception.Should().BeOfType<CreationException>());
@@ -51,7 +51,7 @@ Unable to create MakeItEasy.Specs.DefaultArgumentCannotBeDummiedSpecs+RequiredPa
                 .See<NeitherCollaboratorCanBeDummiedClass>();
 
             "When I make an object of the type"
-                .x(() => exception = Record.Exception(() => Make.A<NeitherCollaboratorCanBeDummiedClass>().From()));
+                .x(() => exception = Record.Exception(() => Make.A<NeitherCollaboratorCanBeDummiedClass>().FromDefaults()));
 
             "Then an exception is thrown"
                 .x(() => exception.Should().BeOfType<CreationException>());
@@ -78,7 +78,7 @@ Unable to create MakeItEasy.Specs.DefaultArgumentCannotBeDummiedSpecs+NeitherCol
                 .See<OptionalCollaboratorsCannotBeDummiedClass>();
 
             "When I make an object of the type"
-                .x(() => subject = Make.A<OptionalCollaboratorsCannotBeDummiedClass>().From());
+                .x(() => subject = Make.A<OptionalCollaboratorsCannotBeDummiedClass>().FromDefaults());
 
             "Then the object is created"
                 .x(() => subject.Should().NotBeNull());

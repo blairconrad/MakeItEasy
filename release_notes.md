@@ -1,3 +1,7 @@
+### Changed
+
+- Rename parameterless From method `FromDefaults` (#7)
+
 ### New
 
 - Fall back to other constructors when one throws or its arguments cannot be

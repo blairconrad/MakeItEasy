@@ -20,7 +20,7 @@ namespace MakeItEasy.Specs
                 .See<SomeConstructorsFailClass>();
 
             "When I make an object of the type"
-                .x(() => subject = Make.A<SomeConstructorsFailClass>().From());
+                .x(() => subject = Make.A<SomeConstructorsFailClass>().FromDefaults());
 
             "Then creation succeeds"
                 .x(() => subject.Should().NotBeNull());
@@ -37,7 +37,7 @@ namespace MakeItEasy.Specs
                 .See<OnlyConstructorFailsClass>();
 
             "When I try to make an object of the type"
-                .x(() => exception = Record.Exception(() => Make.A<OnlyConstructorFailsClass>().From()));
+                .x(() => exception = Record.Exception(() => Make.A<OnlyConstructorFailsClass>().FromDefaults()));
 
             "Then an exception is thrown"
                 .x(() => exception.Should().BeOfType<CreationException>());
@@ -65,7 +65,7 @@ Unable to create MakeItEasy.Specs.SubjectConstructorFailsSpecs+OnlyConstructorFa
                 .See<BothConstructorsFailClass>();
 
             "When I try to make an object of the type"
-                .x(() => exception = Record.Exception(() => Make.A<BothConstructorsFailClass>().From()));
+                .x(() => exception = Record.Exception(() => Make.A<BothConstructorsFailClass>().FromDefaults()));
 
             "Then an exception is thrown"
                 .x(() => exception.Should().BeOfType<CreationException>());

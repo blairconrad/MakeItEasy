@@ -24,7 +24,7 @@ namespace MakeItEasy.Syntax
         /// System Under Test for some test.
         /// </summary>
         /// <returns>The desired object.</returns>
-        public T From()
+        public T FromDefaults()
         {
             var subject = Create(
                 Type.EmptyTypes,

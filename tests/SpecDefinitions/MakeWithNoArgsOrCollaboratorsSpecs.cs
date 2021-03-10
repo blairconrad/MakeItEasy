@@ -17,7 +17,7 @@ namespace MakeItEasy.Specs
                 .See<NoCollaboratorsClass>();
 
             "When I make an object of that type"
-                .x(() => subject = Make.A<NoCollaboratorsClass>().From());
+                .x(() => subject = Make.A<NoCollaboratorsClass>().FromDefaults());
 
             "Then the subject should be of the desired type"
                 .x(() => subject.Should().BeOfType<NoCollaboratorsClass>());
@@ -31,7 +31,7 @@ namespace MakeItEasy.Specs
                 .See<OneOrNoCollaboratorClass>();
 
             "When I make an object of that type"
-                .x(() => subject = Make.A<OneOrNoCollaboratorClass>().From());
+                .x(() => subject = Make.A<OneOrNoCollaboratorClass>().FromDefaults());
 
             "Then the subject should be of the desired type"
                 .x(() => subject.Should().BeOfType<OneOrNoCollaboratorClass>());
@@ -48,7 +48,7 @@ namespace MakeItEasy.Specs
                 .See<OneCollaboratorClass>();
 
             "When I make an object of that type"
-                .x(() => subject = Make.A<OneCollaboratorClass>().From());
+                .x(() => subject = Make.A<OneCollaboratorClass>().FromDefaults());
 
             "Then the subject should be of the desired type"
                 .x(() => subject.Should().BeOfType<OneCollaboratorClass>());
@@ -65,7 +65,7 @@ namespace MakeItEasy.Specs
                 .See<OneArgumentClass>();
 
             "When I make an object of that type"
-                .x(() => subject = Make.A<OneArgumentClass>().From());
+                .x(() => subject = Make.A<OneArgumentClass>().FromDefaults());
 
             "Then the subject should be of the desired type"
                 .x(() => subject.Should().BeOfType<OneArgumentClass>());

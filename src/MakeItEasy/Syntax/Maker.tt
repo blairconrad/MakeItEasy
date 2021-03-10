@@ -69,6 +69,9 @@ for (int i = 1; i <= numberOfCollaborators; ++i)
 <#+
 }
 
+var methodName = numberOfArguments + numberOfCollaborators == 0
+    ? "FromDefaults"
+    : "From";
 var typeParams = numberOfArguments + numberOfCollaborators == 0
     ? string.Empty
     : '<' + string.Join(", ", Enumerable.Range(1, numberOfArguments).Select(i => "TArg" + i).Concat(Enumerable.Range(1, numberOfCollaborators).Select(i => "TCollab" + i))) + '>';
@@ -88,7 +91,7 @@ var collaboratorTypesArray = numberOfCollaborators == 0
     ? "Type.EmptyTypes"
     : "new[] { " + string.Join(", ", Enumerable.Range(1, numberOfCollaborators).Select(i => $"typeof(TCollab{i})")) + " }";
 #>
-        public T From<#= typeParams #>(<#= arguments #>)
+        public T <#= methodName #><#= typeParams #>(<#= arguments #>)
         {
             var subject = Create(
                 <#= argumentTypesArray #>,
