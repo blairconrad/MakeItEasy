@@ -1,5 +1,6 @@
 ### New
 
+- Explicitly test against FakeItEasy 6.2.1
 - Change "latest FakeItEasy" test to include pre-release versions
 
 ## 0.2.0
