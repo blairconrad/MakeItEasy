@@ -12,12 +12,16 @@
     <Description>A library for easily creating systems under test and their Fake collaborators.</Description>
     <Copyright>Copyright (c) MakeItEasy contributors.</Copyright>
     <PackageProjectUrl>https://github.com/blairconrad/MakeItEasy/</PackageProjectUrl>
-    <!-- <PackageIconUrl>https://raw.github.com/blairconrad/MakeItEasy/main/assets/makeiteasy_128x128.png</PackageIconUrl> -->
+    <PackageIcon>images/MakeItEasy.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReleaseNotes>https://github.com/blairconrad/MakeItEasy/blob/main/release_notes.md</PackageReleaseNotes>
     <PackageTags>mocks;mocking;fakes;faking</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../assets/makeiteasy_256.png" Pack="true" PackagePath="images/MakeItEasy.png"/>
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="$(OutputPath)/*/MakeItEasy.pdb">
