@@ -1,5 +1,6 @@
 namespace MakeItEasy.Build
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -10,7 +11,7 @@ namespace MakeItEasy.Build
     using static Bullseye.Targets;
     using static SimpleExec.Command;
 
-    public class Program
+    public static class Program
     {
         private static readonly Project[] ProjectsToPack =
         {
@@ -58,7 +59,7 @@ namespace MakeItEasy.Build
             public override string ToString()
             {
                 return this.Path.Split('/').Last()
-                    .Replace("MakeItEasy.Specs.FIE.", "FakeItEasy ");
+                    .Replace("MakeItEasy.Specs.FIE.", "FakeItEasy ", StringComparison.Ordinal);
             }
         }
    }
