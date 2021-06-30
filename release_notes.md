@@ -1,3 +1,7 @@
+### New
+
+- Add Source Link to package (#18)
+
 ## 0.3.0
 
 ### New
