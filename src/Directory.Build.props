@@ -8,6 +8,10 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(CI)' == 'True' Or '$(CI)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
