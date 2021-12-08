@@ -11,8 +11,8 @@ namespace MakeItEasy.Internal
         private const int UNMAPPED = -1;
         private readonly ConstructorInfo constructor;
         private readonly int[] suppliedArgumentToParameterMap;
-        private Type[] collaboratorTypes;
-        private int[] collaboratorToParameterMap;
+        private readonly Type[] collaboratorTypes;
+        private readonly int[] collaboratorToParameterMap;
 
         public SubjectConstructor(
             ConstructorInfo constructor,
