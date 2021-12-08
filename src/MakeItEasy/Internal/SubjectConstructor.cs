@@ -14,7 +14,7 @@ namespace MakeItEasy.Internal
         private readonly Type[] collaboratorTypes;
         private readonly int[] collaboratorToParameterMap;
 
-        public SubjectConstructor(
+        private SubjectConstructor(
             ConstructorInfo constructor,
             int[] suppliedArgumentToParameterMap,
             Type[] collaboratorTypes,
