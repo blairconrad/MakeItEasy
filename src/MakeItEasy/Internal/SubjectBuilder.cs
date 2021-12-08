@@ -8,17 +8,17 @@ namespace MakeItEasy.Internal
 
     internal class SubjectBuilder
     {
-        public static T BuildSubject<T>(Type[] argumentTypes, object?[] argumentValues, Type[] collaboratorTypes, out object[] collaboratatorValues)
+        public static T BuildSubject<T>(Type[] argumentTypes, object?[] argumentValues, Type[] collaboratorTypes, out object[] collaboratorValues)
         {
             var argumentExceptions = new List<ArgumentCreationException>();
             var constructorExceptions = new List<ConstructorFailedException>();
 
             foreach (var candidateConstructor in GetAllConstructors(typeof(T)).Select(c => SubjectConstructor<T>.TryCreateFrom(c, argumentTypes, collaboratorTypes)).Where(c => c is not null))
             {
-                collaboratatorValues = new object[collaboratorTypes.Length];
+                collaboratorValues = new object[collaboratorTypes.Length];
                 try
                 {
-                    return candidateConstructor!.Build(argumentValues, collaboratatorValues);
+                    return candidateConstructor!.Build(argumentValues, collaboratorValues);
                 }
                 catch (ArgumentCreationException e)
                 {
