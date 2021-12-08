@@ -30,12 +30,12 @@ namespace MakeItEasy.Internal
         {
             var parameters = constructor.GetParameters().ToList();
 
-            var suppliedArgumentsToParameterMap = MapTypesToParameters(parameters, suppliedArgumentTypes);
+            var suppliedArgumentToParameterMap = MapTypesToParameters(parameters, suppliedArgumentTypes);
             var collaboratorToParameterMap = MapTypesToParameters(parameters, collaboratorTypes);
 
-            return suppliedArgumentsToParameterMap.Concat(collaboratorToParameterMap).Any(b => b == UNMAPPED)
+            return suppliedArgumentToParameterMap.Concat(collaboratorToParameterMap).Any(b => b == UNMAPPED)
                 ? null
-                : new SubjectConstructor<T>(constructor, suppliedArgumentsToParameterMap, collaboratorTypes, collaboratorToParameterMap);
+                : new SubjectConstructor<T>(constructor, suppliedArgumentToParameterMap, collaboratorTypes, collaboratorToParameterMap);
 
             static int[] MapTypesToParameters(IList<ParameterInfo> parameters, Type[] requiredTypes)
             {
