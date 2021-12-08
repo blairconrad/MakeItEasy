@@ -6,7 +6,7 @@ namespace MakeItEasy.Internal
     using System.Reflection;
     using System.Text;
 
-    internal class SubjectBuilder
+    internal static class SubjectBuilder
     {
         public static T BuildSubject<T>(Type[] argumentTypes, object?[] argumentValues, Type[] collaboratorTypes, out object[] collaboratorValues)
         {
