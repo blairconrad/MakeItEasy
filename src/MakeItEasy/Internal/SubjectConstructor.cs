@@ -6,6 +6,11 @@ namespace MakeItEasy.Internal
     using System.Reflection;
     using FakeItEasy.Sdk;
 
+    /// <summary>
+    /// Represents a single constructor that might be used to create a "subject". The <see cref="Build"/> method will attempt to create whatever additional
+    /// arguments are needed and then execute the wrapped constructor.
+    /// </summary>
+    /// <typeparam name="T">The type of subject that would be constructed.</typeparam>
     internal class SubjectConstructor<T>
     {
         private const int UNMAPPED = -1;
